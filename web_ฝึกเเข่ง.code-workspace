@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web_ฝึกเเข่ง",
+		"webviewPanel.setListenPort": 5500
+	}
+}

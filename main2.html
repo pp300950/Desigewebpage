@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Onscroll Animation: Dynamic Content Scroll with ScrollMagic</title>
+</head>
+<body>
+    <head>
+        <style>
+            :root {
+                --primary: #212121;
+                --secondary: #515151;
+                --white: #ffffff;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body,
+            html {
+                overflow-x: hidden;
+            }
+
+            body {
+                background-color: var(--primary);
+                height: 100%;
+                color: var(--white);
+            }
+
+            body::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            body::-webkit-scrollbar-track {
+                border-radius: 10px;
+            }
+
+            body::-webkit-scrollbar-thumb {
+                background: var(--secondary);
+                border-radius: 10px;
+            }
+
+            body::-webkit-scrollbar-thumb:hover {
+                background: var(--secondary);
+            }
+
+            ::selection {
+                background: var(--primary);
+                color: var(--white);
+            }
+
+            .overflow-hidden {
+                overflow: hidden !important;
+                position: fixed;
+                width: 100%;
+            }
+
+            h1,
+            h2,
+            h3 {
+                margin-bottom: 30px;
+                font-size: 24px;
+                line-height: 1;
+                text-transform: capitalize;
+                -webkit-text-transform: capitalize;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                -webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                color: var(--white);
+                letter-spacing: 1.2px;
+                -webkit-text-transform: uppercase;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: 45px;
+                line-height: 1.4;
+                font-family: "Titillium Web", sans-serif;
+                font-weight: 200;
+            }
+
+            .pinWrapper {
+                height: 100%;
+                width: 100%;
+                position: relative;
+                z-index: 11;
+            }
+
+            .scrollmagic-pin-spacer {
+                position: absolute !important;
+                clip: rect(auto, auto, auto, auto);
+            }
+
+            .event {
+                position: relative;
+                overflow: hidden;
+                height: 100svh;
+                width: 100vw;
+                z-index: 1;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+
+            .event::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            #section2.event::before {
+                background-color: rgb(21 22 28 / 34%);
+            }
+
+            #section3.event::before {
+                background-color: rgb(86 82 76 / 57%);
+            }
+
+            #section4.event::before {
+                background-color: rgb(120 115 103 / 58%);
+            }
+            #section5.event::before {
+                background-color: rgb(120 115 103 / 58%);
+            }
+
+            #section2 {
+                background-image: url("https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/what-is-a-beach-1_ver_1.jpg");
+            }
+
+            #section3 {
+                background-image: url("https://ik.imagekit.io/click2go/tours/00004/gallery/01_Ang_ThongNational_Marine_Park.jpg?tr=w-720");
+            }
+
+            #section4 {
+                background-image: url("https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg");
+            }
+            #section5 {
+                background-image: url("https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98=");
+            }
+
+            .image {
+                height: 100%;
+                width: 100%;
+                top: 0%;
+                left: 0%;
+                position: absolute;
+                background-size: cover;
+                background-position: center center;
+                transition: width 1s, height 1s;
+                -webkit-transition: width 1s, height 1s;
+                box-shadow: 2px 2px 10px 10px rgb(0 0 0 / 12%);
+                -webkit-box-shadow: 2px 2px 10px 10px rgb(0 0 0 / 12%);
+                transform-origin: center;
+                -webkit-transform-origin: center;
+                z-index: 8888;
+                overflow: hidden;
+                border-radius: 0;
+            }
+
+            .image:not(#loaderVideo) {
+                top: -50%;
+                width: 500px;
+                height: 500px;
+                left: auto;
+                right: 100px;
+                position: absolute;
+                border-radius: 12px;
+                transform: translate(0%, -50%);
+                -webkit-transform: translate(0%, -50%);
+            }
+
+            #section2 .image {
+                background-image: url("https://www.timeoutabudhabi.com/cloud/timeoutabudhabi/2021/11/30/Dreamy-beaches-in-middle-east.jpg");
+            }
+
+            #section3 .image {
+                background-image: url("https://wearekrabi.com/wp-content/uploads/2020/09/KohHa_DJI_0010-1024x683.jpg");
+            }
+
+            #section4 .image {
+                background-image: url("https://www.theexcelsiorhotel.com.ph/wp-content/uploads/2023/11/Two-bedroom-Suite-2-scaled.webp");
+            }
+            #section5 .image {
+                background-image: url("https://media.istockphoto.com/id/1305699663/photo/seafood-platter-grilled-lobster-shrimps-scallops-langoustines-octopus-squid-on-white-plate.jpg?s=612x612&w=0&k=20&c=iEwdxon7CJ0wQEDy8-kwnz7TLdknVw05vaa-Qc_aHow=");
+            }
+
+            /* Section Text */
+            .text {
+                top: -50%;
+                left: 0;
+                position: absolute;
+                transform: translate(100px, -50%);
+                -webkit-transform: translate(100px, -50%);
+                width: 43%;
+                
+            }
+            .text h2 {
+                font-weight: 800;
+            }
+
+            /* Scroll Button */
+            .scrollBtn {
+                position: absolute;
+                bottom: 2.5%;
+                left: 50%;
+                transform: translate(-50%, 0);
+                -webkit-transform: translate(-50%, 0);
+                width: 100px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+                z-index: 1;
+                transition: all ease-in-out 0.35s;
+                -webkit-transition: all ease-in-out 0.35s;
+            }
+
+            .scrollBtn.move {
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            .scrollBtn span {
+                width: 12px;
+                height: 12px;
+                display: block;
+                border-bottom: 2px solid var(--white);
+                border-right: 2px solid var(--white);
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                animation: animate 2s infinite;
+                -webkit-animation: animate 2s infinite;
+                margin: auto;
+            }
+
+            .scrollBtn h6 {
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: 400;
+                font-family: "Titillium Web", sans-serif;
+                text-align: center;
+                text-transform: uppercase;
+                -webkit-text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            @keyframes animate {
+                0% {
+                    opacity: 0;
+                    transform: rotate(45deg) translate(-10px, -10px);
+                }
+
+                50% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: rotate(45deg) translate(10px, 10px);
+                }
+            }
+
+            @-webkit-keyframes animate {
+                0% {
+                    opacity: 0;
+                    transform: rotate(45deg) translate(-10px, -10px);
+                }
+
+                50% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: rotate(45deg) translate(10px, 10px);
+                }
+            }
+
+            /* Preloader */
+            #preloader {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background-color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 1s;
+                -webkit-transition: all 1s;
+            }
+
+            #preloader img,
+            #preloader video {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+            }
+
+            #preloader::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: "";
+                z-index: 1;
+            }
+
+            .text-wrapper {
+                text-align: center;
+                height: 24px;
+                overflow: hidden;
+                transition: opacity 1s;
+                -webkit-transition: opacity 1s;
+            }
+
+            #first-text {
+                animation: moveUp 1s 1s forwards;
+                -webkit-animation: moveUp 1s 1s forwards;
+            }
+
+            #second-text {
+                opacity: 0;
+                transform: translateY(-30px);
+                -webkit-transform: translateY(-30px);
+                animation: scrollup 1s 1.2s forwards, moveUpAgain 1s 2.2s forwards;
+                -webkit-animation: scrollup 1s 1.2s forwards, moveUpAgain 1s 2.2s forwards;
+            }
+
+            @keyframes moveUp {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-100px);
+                    opacity: 0;
+                }
+            }
+
+            @-webkit-keyframes moveUp {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-100px);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes scrollup {
+                100% {
+                    transform: translateY(-54px);
+                }
+            }
+
+            @-webkit-keyframes scrollup {
+                100% {
+                    transform: translateY(-54px);
+                }
+            }
+
+            @keyframes moveUpAgain {
+                0% {
+                    transform: translateY(-54px);
+                    opacity: 1;
+                }
+
+                60% {
+                    transform: translateY(-54px);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-60px);
+                    opacity: 0;
+                }
+            }
+
+            @-webkit-keyframes moveUpAgain {
+                0% {
+                    transform: translateY(-54px);
+                    opacity: 1;
+                }
+
+                60% {
+                    transform: translateY(-54px);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-60px);
+                    opacity: 0;
+                }
+            }
+
+            /* Media Query */
+            @media screen and (max-width: 1399px) {
+                h2 {
+                    font-size: 22px;
+                }
+
+                p {
+                    font-size: 38px;
+                }
+
+                .text {
+                    transform: translate(60px, -50%);
+                    -webkit-transform: translate(60px, -50%);
+                }
+
+                .image:not(#loaderVideo) {
+                    height: 450px;
+                    width: 450px;
+                    right: 80px;
+                    transform: translate(0%, -50%);
+                    -webkit-transform: translate(0%, -50%);
+                }
+            }
+
+            @media screen and (max-width: 1199px) {
+                h2 {
+                    font-size: 20px;
+                }
+
+                p {
+                    font-size: 34px;
+                }
+
+                .text {
+                    transform: translate(40px, -50%);
+                    -webkit-transform: translate(40px, -50%);
+                    width: 44%;
+                }
+
+                .image:not(#loaderVideo) {
+                    height: 400px;
+                    width: 400px;
+                    right: 60px;
+                    transform: translate(0%, -50%);
+                    -webkit-transform: translate(0%, -50%);
+                }
+            }
+
+            @media screen and (max-width: 991px) {
+                h2 {
+                    font-size: 18px;
+                }
+
+                p {
+                    font-size: 26px;
+                }
+
+                .text {
+                    transform: translate(24px, -50%);
+                    -webkit-transform: translate(24px, -50%);
+                    width: 44%;
+                }
+
+                .image:not(#loaderVideo) {
+                    height: 310px;
+                    width: 310px;
+                    right: 40px;
+                    transform: translate(0%, -50%);
+                    -webkit-transform: translate(0%, -50%);
+                }
+            }
+
+            @media screen and (max-width: 767px) {
+                h2 {
+                    font-size: 16px;
+                }
+
+                p {
+                    font-size: 22px;
+                }
+
+                .image:not(#loaderVideo) {
+                    height: 220px;
+                    width: 220px;
+                }
+            }
+
+            @media screen and (max-width: 576px) {
+                .text {
+                    top: -36%;
+                    width: 100%;
+                    width: calc(100% - 80px);
+                }
+
+                #section1 .text {
+                    top: 64%;
+                }
+
+                .image:not(#loaderVideo) {
+                    top: -75%;
+                    left: 24px;
+                    right: auto;
+                    transform: translate(0%, -25%);
+                    -webkit-transform: translate(0%, -25%);
+                }
+            }
+
+            .container a {
+                text-decoration: none;
+            }
+
+            .container li {
+                list-style: none;
+            }
+
+            .container {
+                min-height: 100vh;
+                padding-bottom: 50px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .bg {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .bg::after {
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: -1;
+                filter: brightness(45%);
+                background-image: url("https://images.unsplash.com/photo-1504214208698-ea1916a2195a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+                background-size: cover;
+                background-position: center;
+            }
+
+            .navBar {
+                display: flex;
+                width: 85%;
+                justify-content: space-between;
+                margin: 0 auto;
+                align-items: center;
+                height: 15vh;
+            }
+
+            .navBar ul {
+                display: flex;
+                align-items: center;
+            }
+
+            .navBar ul li {
+                padding: 0 25px;
+            }
+
+            .navBar ul li a {
+                font-size: 1.2rem;
+                color: #fff;
+                font-weight: 400;
+                letter-spacing: 1.5px;
+            }
+
+            .navBar .logo a {
+                font-size: 2.3rem;
+                color: #fff;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 85%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .phuket {
+                color: #fff;
+                padding: 25px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .card {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-gap: 20px;
+                width: 100%;
+            }
+
+            .card h2 {
+                color: #fff;
+                position: absolute;
+                bottom: 15px;
+                left: 20px;
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .card .box1,
+            .box2,
+            .box3,
+            .box4 {
+                width: 100%;
+                height: 220px;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+                border-radius: 25px;
+                cursor: pointer;
+            }
+
+            .box1 {
+                background-image: url("https://images.unsplash.com/photo-1579683670728-96c9abc7a088?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+            }
+
+            .box2 {
+                background-image: url("https://images.unsplash.com/photo-1601225612316-b4733315a717?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+            }
+
+            .box3 {
+                background-image: url("https://media.istockphoto.com/id/119926339/photo/resort-swimming-pool.jpg?s=612x612&w=0&k=20&c=9QtwJC2boq3GFHaeDsKytF4-CavYKQuy1jBD2IRfYKc=");
+            }
+
+            .box4 {
+                background-image: url("https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg");
+            }
+
+            .phuket h2 {
+                font-size: 2rem;
+                letter-spacing: 2.8px;
+            }
+
+           .navBar .text {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .txt h1 {
+                font-size: 5rem;
+            }
+
+            .phuket p {
+                font-size: 1.5rem;
+                opacity: 0.5;
+            }
+
+            .tnx h2 i {
+                color: #fd7e13;
+            }
+
+            .card div {
+                transition: 0.5s;
+            }
+
+            .card div:hover {
+                transition: 0.3s;
+                transform: translateY(-10px);
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+            }
+
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .navBar {
+                    flex-direction: column;
+                    height: auto;
+                    align-items: flex-start;
+                }
+
+                .navBar ul {
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: flex-start;
+                }
+
+                .navBar ul li {
+                    padding: 10px 0;
+                }
+
+                .navBar .logo a {
+                    font-size: 1.8rem;
+                }
+
+                .phuket h2 {
+                    font-size: 1.5rem;
+                }
+
+                .txt h1 {
+                    font-size: 4rem;
+                }
+
+                .card {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .navBar .logo a {
+                    font-size: 1.5rem;
+                }
+
+                .phuket h2 {
+                    font-size: 1.2rem;
+                }
+
+                .txt h1 {
+                    font-size: 3rem;
+                }
+
+                .card {
+                    grid-template-columns: 1fr;
+                    grid-gap: 10px;
+                }
+
+                .card .box1,
+                .box2,
+                .box3,
+                .box4 {
+                    height: 180px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- poit , logo ไม่ได้ใส่ภาพ-->
+        <section class="events-page" >
+            <div id="section1" class="event">
+                <div class="container bg">
+                    <div class="navBar">
+                        <div class="logo">
+                            <a href="#">
+                                <i class="fas fa-suitcase-rolling"></i>
+                            </a>
+                        </div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <div class="phuket" style="width:100%;">
+                            <div class="tnx">
+                                <h2><i class="fas fa-map-marker-alt"></i> Thailand</h2>
+                            </div>
+                            <div class="txt">
+                                <h1>PHU</h1>
+                                <h1>KET</h1>
+                            </div>
+                            <p>ภูเก็ตเป็นเกาะสวรรค์ของประเทศไทยที่คุณไม่ควรพลาด! เพลิดเพลินกับชายหาดทรายขาว น้ำทะเลใส และกิจกรรมสนุกมากมาย เช่น การดำน้ำ และการสำรวจเกาะสวยงาม  
+                                 พบกับบรรยากาศที่อบอุ่นและอาหารทะเลสดๆ ที่นี่ได้เลย!</p>
+                        </div>
+                        <div class="card" style="width:100%;">
+                            <a href="#section2" >
+                                <div class="box1">
+                                    <h2>Bleach</h2>
+                                </div>
+                            </a>
+                            <a href="#section3" >
+                                <div class="box2">
+                                    <h2>Island</h2>
+                                </div>
+                            </a>
+                            <a href="#section4">
+                                <div class="box3">
+                                    <h2>Hotel</h2>
+                                </div>
+                            </a>
+                            <a href="#section5">
+                                <div class="box4">
+                                    <h2>Food</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Section 01 -->
+            <div id="section2" class="event">
+                <div class="pinWrapper">
+                    <div class="text">
+                        <h2>Bleach</h2>
+                        <p>ชายหาดภูเก็ตเสน่ห์ด้วยทรายขาวและน้ำทะเลใส สวรรค์ของนักท่องเที่ยวที่รักการพักผ่อนริมทะเล!</p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <!-- Section 02 -->
+            <div id="section3" class="event">
+                <div class="pinWrapper">
+                    <div class="text">
+                        <h2>Island</h2>
+                        <p>เกาะภูเก็ตคือที่หลบภัยสุดฟินกับธรรมชาติที่สวยงามและกิจกรรมสนุกๆ ที่คุณต้องมาสัมผัส!</p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <!-- Section 03 -->
+            <div id="section4" class="event">
+                <div class="pinWrapper">
+                    <div class="text">
+                        <h2>Hotel</h2>
+                        <p>โรงแรมภูเก็ตพร้อมบริการที่อบอุ่นและวิวทะเลสุดงดงาม เหมาะสำหรับการพักผ่อนอย่างแท้จริง!</p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <div id="section5" class="event">
+                <div class="pinWrapper">
+                    <div class="text">
+                        <h2>Food</h2>
+                        <p>อาหารภูเก็ตเต็มไปด้วยรสชาติแสนอร่อย ตั้งแต่อาหารทะเลสดๆ จนถึงเมนูท้องถิ่นที่คุณต้องลิ้มลอง!</p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <!-- Section 04 -->
+        </section>
+    </body>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js'></script>
+    <script src='https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js'></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+
+    <script>
+        const lenis = new Lenis()
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
+        document.addEventListener('DOMContentLoaded', function () {
+            const scrollBtn = document.getElementById('scrollBtn');
+            window.addEventListener('scroll', function () {
+                const box = document.querySelector('.scrollBtn');
+                if (window.scrollY > 0) {
+                    box.classList.add('move');
+                } else {
+                    box.classList.remove('move');
+                }
+            });
+        });
+
+        var controller = new ScrollMagic.Controller({ loglevel: 3 });
+        new ScrollMagic.Scene({
+            triggerElement: "#section2",
+            triggerHook: "onEnter",
+            duration: "100%"
+        }).setPin("#section1 .pinWrapper", {
+            pushFollowers: false
+        }).addTo(controller);
+        
+        new ScrollMagic.Scene({
+            triggerElement: "#section2",
+            triggerHook: "onEnter",
+            duration: "200%"
+        }).setPin("#section2 .pinWrapper", {
+            pushFollowers: false
+        }).addTo(controller);
+        new ScrollMagic.Scene({
+            triggerElement: "#section3",
+            triggerHook: "onEnter",
+            duration: "200%"
+        }).setPin("#section3 .pinWrapper", {
+            pushFollowers: false
+        }).addTo(controller);
+        new ScrollMagic.Scene({
+            triggerElement: "#section4",
+            triggerHook: "onEnter",
+            duration: "200%"
+        }).setPin("#section4 .pinWrapper", {
+            pushFollowers: false
+        }).addTo(controller);
+        new ScrollMagic.Scene({
+            triggerElement: "#section5",
+            triggerHook: "onEnter",
+            duration: "100%"
+        }).setPin("#section5 .pinWrapper", {
+            pushFollowers: false
+        }).addTo(controller);
+
+    </script>
+</body>
+</html>

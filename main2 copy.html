@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Onscroll Animation: Dynamic Content Scroll with ScrollMagic</title>
+</head>
+
+<body>
+
+    <head>
+        <style>
+            :root {
+                --primary: #212121;
+                --secondary: #515151;
+                --white: #ffffff;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body,
+            html {
+                overflow-x: hidden;
+            }
+
+            body {
+                background-color: var(--primary);
+                height: 100%;
+                color: var(--white);
+            }
+
+            h1,
+            h2,
+            h3 {
+                margin-bottom: 30px;
+                font-size: 24px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                -webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                color: var(--white);
+                letter-spacing: 1.2px;
+                -webkit-text-transform: uppercase;
+                text-transform: uppercase;
+            }
+
+            p {
+                font-size: 45px;
+                line-height: 1.4;
+                font-family: "Titillium Web", sans-serif;
+                font-weight: 200;
+            }
+
+          
+
+            .event {
+                position: relative;
+                overflow: hidden;
+                height: 100svh;
+                width: 100vw;
+                z-index: 1;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+
+            .event::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            #section2.event::before {
+                background-color: rgb(21 22 28 / 34%);
+            }
+
+            #section3.event::before {
+                background-color: rgb(86 82 76 / 57%);
+            }
+
+            #section4.event::before {
+                background-color: rgb(120 115 103 / 58%);
+            }
+
+            #section5.event::before {
+                background-color: rgb(120 115 103 / 58%);
+            }
+
+            #section2 {
+                background-image: url("https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/what-is-a-beach-1_ver_1.jpg");
+            }
+
+            #section3 {
+                background-image: url("https://ik.imagekit.io/click2go/tours/00004/gallery/01_Ang_ThongNational_Marine_Park.jpg?tr=w-720");
+            }
+
+            #section4 {
+                background-image: url("https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg");
+            }
+
+            #section5 {
+                background-image: url("https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98=");
+            }
+
+
+
+
+            
+            .container a {
+                text-decoration: none;
+            }
+
+            .container li {
+                list-style: none;
+            }
+
+            .container {
+                min-height: 100vh;
+                padding-bottom: 50px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .bg {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .bg::after {
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: -1;
+                filter: brightness(45%);
+                background-image: url("https://images.unsplash.com/photo-1504214208698-ea1916a2195a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
+                background-size: cover;
+                background-position: center;
+            }
+
+            .navBar {
+                display: flex;
+                width: 85%;
+                justify-content: space-between;
+                margin: 0 auto;
+                align-items: center;
+                height: 15vh;
+            }
+
+            .navBar ul {
+                display: flex;
+                align-items: center;
+            }
+
+            .navBar ul li {
+                padding: 0 25px;
+            }
+
+            .navBar ul li a {
+                font-size: 1.2rem;
+                color: #fff;
+                font-weight: 400;
+                letter-spacing: 1.5px;
+            }
+
+            .navBar .logo a {
+                font-size: 2.3rem;
+                color: #fff;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 85%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .phuket {
+                color: #fff;
+                padding: 25px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .card {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-gap: 20px;
+                width: 100%;
+            }
+
+            .card h2 {
+                color: #fff;
+                position: absolute;
+                bottom: 15px;
+                left: 20px;
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .card .box1,
+            .box2,
+            .box3,
+            .box4 {
+                width: 100%;
+                height: 220px;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+                border-radius: 25px;
+                cursor: pointer;
+            }
+
+            .box1 {
+                background-image: url("https://images.unsplash.com/photo-1579683670728-96c9abc7a088?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+            }
+
+            .box2 {
+                background-image: url("https://images.unsplash.com/photo-1601225612316-b4733315a717?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+            }
+
+            .box3 {
+                background-image: url("https://media.istockphoto.com/id/119926339/photo/resort-swimming-pool.jpg?s=612x612&w=0&k=20&c=9QtwJC2boq3GFHaeDsKytF4-CavYKQuy1jBD2IRfYKc=");
+            }
+
+            .box4 {
+                background-image: url("https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg");
+            }
+
+            .phuket h2 {
+                font-size: 2rem;
+                letter-spacing: 2.8px;
+            }
+
+            .navBar .text {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .txt h1 {
+                font-size: 5rem;
+            }
+
+            .phuket p {
+                font-size: 1.5rem;
+                opacity: 0.5;
+            }
+
+            .tnx h2 i {
+                color: #fd7e13;
+            }
+
+            .card div {
+                transition: 0.5s;
+            }
+
+            .card div:hover {
+                transition: 0.3s;
+                transform: translateY(-10px);
+                box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+            }
+
+            #scrollDown {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: none;
+                align-items: center;
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            #scrollDown:hover {
+                background: rgba(0, 0, 0, 0.9);
+            }
+
+            #scrollDown::before {
+                content: '▼';
+                display: block;
+                font-size: 24px;
+            }
+
+            #scrollDown span {
+                display: block;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- poit , logo ไม่ได้ใส่ภาพ-->
+        <section class="events-page">
+            <div id="section1" class="event">
+                <div class="container bg">
+                    <div class="navBar">
+                        <div class="logo">
+                            <a href="#">
+                                <i class="fas fa-suitcase-rolling"></i>
+                            </a>
+                        </div>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <div class="phuket" style="width:100%;">
+                            <div class="tnx">
+                                <h2><i class="fas fa-map-marker-alt"></i> Thailand</h2>
+                            </div>
+                            <div class="txt">
+                                <h1>PHU</h1>
+                                <h1>KET</h1>
+                            </div>
+                            <p>ภูเก็ตเป็นเกาะสวรรค์ของประเทศไทยที่คุณไม่ควรพลาด! เพลิดเพลินกับชายหาดทรายขาว น้ำทะเลใส
+                                และกิจกรรมสนุกมากมาย เช่น การดำน้ำ และการสำรวจเกาะสวยงาม
+                                พบกับบรรยากาศที่อบอุ่นและอาหารทะเลสดๆ ที่นี่ได้เลย!</p>
+                        </div>
+                        <div class="card" style="width:100%;">
+                            <a href="#section2">
+                                <div class="box1">
+                                    <h2>Bleach</h2>
+                                </div>
+                            </a>
+                            <a href="#section3">
+                                <div class="box2">
+                                    <h2>Island</h2>
+                                </div>
+                            </a>
+                            <a href="#section4">
+                                <div class="box3">
+                                    <h2>Hotel</h2>
+                                </div>
+                            </a>
+                            <a href="#section5">
+                                <div class="box4">
+                                    <h2>Food</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="scrollDown" onclick="scrollToBottom()">
+                    <span>เลื่อนลง</span>
+                </div>
+            </div>
+
+            <div id="section2" class="event">
+                
+            </div>
+
+            <div id="section3" class="event">
+                <div class="pinWrap">
+                    <div class="text">
+                        <h2>Island</h2>
+                        <p>เกาะภูเก็ตคือที่หลบภัยสุดฟินกับธรรมชาติที่สวยงามและกิจกรรมสนุกๆ ที่คุณต้องมาสัมผัส!</p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+
+            <div id="section4" class="event">
+                <div class="pinWrap">
+                    <div class="text">
+                        <h2>Hotel</h2>
+                        <p>โรงแรมภูเก็ตพร้อมบริการที่อบอุ่นและวิวทะเลสุดงดงาม เหมาะสำหรับการพักผ่อนอย่างแท้จริง!</p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+            <div id="section5" class="event">
+                <div class="pinWrap">
+                    <div class="text">
+                        <h2>Food</h2>
+                        <p>อาหารภูเก็ตเต็มไปด้วยรสชาติแสนอร่อย ตั้งแต่อาหารทะเลสดๆ จนถึงเมนูท้องถิ่นที่คุณต้องลิ้มลอง!
+                        </p>
+                    </div>
+                    <div class="image"></div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const scrollDown = document.getElementById('scrollDown');
+            window.addEventListener('scroll', () => {
+                scrollDown.style.display = window.scrollY === 0 ? 'flex' : 'none';
+                scrollDown.style.opacity = window.scrollY === 0 ? '1' : '0';
+            });
+
+            scrollDown.addEventListener('click', () => {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
+<!-- 549 -->
+<!-- 785 -->

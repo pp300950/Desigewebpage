@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Onscroll Animation: Dynamic Content Scroll with ScrollMagic</title>
+    <style>
+        :root {
+            --primary: #212121;
+            --secondary: #515151;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--primary);
+            height: 100%;
+            color: var(--white);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            -webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            color: var(--white);
+            letter-spacing: 1.2px;
+        }
+
+        p {
+            font-size: 45px;
+            line-height: 1.4;
+            font-family: "Titillium Web", sans-serif;
+            font-weight: 200;
+        }
+
+        .event {
+            position: relative;
+            overflow: hidden;
+            height: 100svh;
+            width: 100vw;
+            z-index: 1;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .event::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #section2.event::before,
+        #section3.event::before,
+        #section4.event::before,
+        #section5.event::before,
+        #section6.event::before {
+            background-color: rgb(86 82 76 / 57%);
+        }
+
+        #section2 {
+            background-image: url("https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/what-is-a-beach-1_ver_1.jpg");
+        }
+
+        #section3 {
+            background-image: url("https://ik.imagekit.io/click2go/tours/00004/gallery/01_Ang_ThongNational_Marine_Park.jpg?tr=w-720");
+        }
+
+        #section4 {
+            background-image: url("https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg");
+        }
+
+        #section5 {
+            background-image: url("https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98=");
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #444;
+            padding-bottom: 20px;
+        }
+
+        .footer-container p {
+            font-size: large;
+        }
+
+        .footer-item {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-item h3 {
+            margin-top: 0;
+            color: #f1c40f;
+        }
+
+        .footer-item p {
+            margin: 5px 0;
+        }
+
+        .footer-item a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        .footer-item a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #444;
+            background-color: #222;
+        }
+
+        .footer-bottom p {
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+        <section class="events-page">
+            <div id="section1" class="event">
+
+            </div>
+            <div style="padding: 20px;">
+                <!-- เเยกเนื้อหา -->
+            </div>
+            <div id="section2" class="event">
+
+            </div>
+
+            <div id="section3" class="event">
+                
+            </div>
+
+            <div id="section4" class="event">
+               
+            </div>
+            <div id="section5" class="event">
+                
+            </div>
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-item">
+                    <h3>About Us</h3>
+                    <p>We are a team of passionate individuals dedicated to providing the best services and solutions.
+                    </p>
+                </div>
+                <div class="footer-item">
+                    <h3>Contact</h3>
+                    <p>Email: info@example.com</p>
+                    <p>Phone: +123 456 7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            </div>
+        </footer>
+    
+</body>
+
+</html>
+
+<!-- 657 -->
+<!-- 430 -->
+<!-- 549 -->
+<!-- 785 -->
