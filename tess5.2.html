@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         .contenner a{
+            text-decoration: none;
             
         }
         .contenner li{
-
+            list-style: none;
         }
         .contenner{
-
+            min-width: 100vh;
+            padding-bottom: 50px;
+            margin: 0 auto;
+            position: relative;
         }
         .bg{
-
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
         .bg::after{
-
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: brightness(45%);
+            background-image: url('');
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            content: "";
         }
         .navbar{
 
@@ -36,9 +51,12 @@
         .navbar .logo a{
 
         }
-        .phuket{
+        .content{
 
         }
+        .phuket{
+
+        } 
         .phuket h2{
 
         }
@@ -52,9 +70,7 @@
 
         }
         .card .box1,
-        .box2,
-        .box3,
-        .box4 {
+        .box2,.box3,.box4{
 
         }
         .box1{
@@ -69,13 +85,14 @@
         .box4{
 
         }
+
         .card div{
 
         }
         .card div:hover{
 
         }
-        #scrolldow {
+        #scrolldow{
 
         }
         #scrolldow:hover{
@@ -89,19 +106,17 @@
         }
     </style>
 </head>
-
 <body>
     <div class="contenner">
-        <div class="navbar">
+        <div class="navBar">
             <div class="logo">
                 <a href="">Logo</a>
             </div>
-
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Travel</a></li>
-                <li><a href="">About</a></li>
                 <li><a href="">Contact</a></li>
+                <li><a href="">About</a></li>
             </ul>
         </div>
 
@@ -114,46 +129,47 @@
                     <h1>PHU</h1>
                     <h1>KET</h1>
                 </div>
-            </div>
-            <div class="card">
-                <a href="#section2">
-                    <div class="box1">
-                        <h2>Beach</h2>
-                    </div>
-                </a>
-                <a href="#section3">
-                    <div class="box2">
-                        <h2>Beach</h2>
-                    </div>
-                </a>
-                <a href="#section4">
-                    <div class="box3">
-                        <h2>Beach</h2>
-                    </div>
-                </a>
-                <a href="#section5">
-                    <div class="box4">
-                        <h2>Beach</h2>
-                    </div>
-                </a>
+                <p>fdhjkvjkdh ghjghjghjgffgh ghghjhjhjygfy</p>
             </div>
         </div>
+         <div class="card" style="width: 100%;">
+            <a href="#section2">
+                <div class="box1">
+                    <h2>Beach</h2>
+                </div>
+            </a>
+            <a href="#section3">
+                <div class="box2">
+                    <h2>Beach</h2>
+                </div>
+            </a>
+            <a href="#section4">
+                <div class="box3">
+                    <h2>Beach</h2>
+                </div>
+            </a>
+            <a href="#section5">
+                <div class="box4">
+                    <h2>Beach</h2>
+                </div>
+            </a>
+         </div>
     </div>
+
     <div id="scrolldow">
         <span>↨เลื่อนลง</span>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded',()=>{
             const scrollDow = document.getElementById('scrolldow');
-            window.addEventListener('scrollDow',()=>{
+            window.addEventListener('scroll',()=>{
                 scrollDow.style.display = window.scrollY = 0 ? 'flex' : 'none';
-                scrollDow.style.opacity = window.scrollY = 0 ? '1' : '0';
+                scrollDow.style.opacity = window.scrollY = 0 ? '1' : '0'; 
             })
-            window.addEventListener('click', ()=>{
-                window.scrollTo({ top : document.body.scrollHeight,behavior:'smooth'})
+            window.addEventListener('click',()=>{
+                window.scrollTo({ top: document.body.scrollHeight, Behavior:'smooth'});
             })
         })
     </script>
 </body>
-
 </html>

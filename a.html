@@ -20,19 +20,6 @@
             margin: 0 auto;
             position: relative;
         }
-        .container a{
-            text-decoration: none;
-
-        }
-        .container ul {
-            list-style: none;
-        }
-        .container {
-            min-width: 100vh;
-            padding-bottom: 50px;
-            margin: 0 auto;
-            position: relative;
-        }
 
         .bg {
             position: relative;
@@ -102,11 +89,35 @@
             width: 100%;
         }
 
+        .phuket h2 {
+            font-size: 2rem;
+            letter-spacing: 2.8px;
+        }
+
+        .phuket p {
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
         .card {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             grid-gap: 20px;
             width: 100%;
+        }
+
+        .phuket {
+            
+            
+        }
+
+        .phuket h2 {
+            
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
         }
 
         .card h2 {
@@ -147,28 +158,8 @@
             background-image: url("https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg");
         }
 
-        .phuket h2 {
-            font-size: 2rem;
-            letter-spacing: 2.8px;
-        }
-
-        .navBar .text {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
         .txt h1 {
             font-size: 5rem;
-        }
-
-        .phuket p {
-            font-size: 1.5rem;
-            opacity: 0.5;
-        }
-
-        .tnx h2 i {
-            color: #fd7e13;
         }
 
         .card div {
@@ -234,7 +225,7 @@
 
         <div class="content">
             <div class="phuket" style="width:100%;">
-                <div class="tnx">
+                <div class="tnt">
                     <h2><i class="fas fa-map-marker-alt"></i> Thailand</h2>
                 </div>
                 <div class="txt">
@@ -271,7 +262,7 @@
 
     </div>
     <div id="scrollDown" onclick="scrollToBottom()">
-        <span>เลื่อนลง</span>
+        <span>↨เลื่อนลง</span>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
