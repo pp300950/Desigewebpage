@@ -1,0 +1,16 @@
+#A
+background = https://images.unsplash.com/photo-1504214208698-ea1916a2195a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80
+card1 = https://images.unsplash.com/photo-1579683670728-96c9abc7a088?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80
+card2 = https://images.unsplash.com/photo-1601225612316-b4733315a717?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80
+card3 = https://media.istockphoto.com/id/119926339/photo/resort-swimming-pool.jpg?s=612x612&w=0&k=20&c=9QtwJC2boq3GFHaeDsKytF4-CavYKQuy1jBD2IRfYKc=
+card4 = https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg
+
+#B
+map1 = https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth
+pic1 = https://media.istockphoto.com/id/1477967321/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%AA%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%A1%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B5%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B9%83%E0%B8%AA%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B9%83%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A1%E0%B8%B5%E0%B9%81%E0%B8%94%E0%B8%94.jpg?b=1&s=170667a&w=0&k=20&c=CFk2VJjiqWZIxxI6_0CpTb_AMUVyczcG0qQCkEGcrCE=
+map2 = https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth
+pic2 = https://cdn.pixabay.com/photo/2024/02/09/13/03/beach-8563083_1280.jpg
+map3 = https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth
+pic3 = https://cdn.pixabay.com/photo/2016/10/22/18/52/beach-1761410_640.jpg
+map4 = https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth
+pic4 = https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_640.jpg
