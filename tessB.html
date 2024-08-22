@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">imag1</div>
+        </div>
+        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">imag2</div>
+        </div>
+        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">imag3</div>
+        </div>
+        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">imag4</div>
+        </div>
+    </div>
+
+    <div class="details-container">
+        <h2 id="location-title"></h2>
+        <p id="location-description"></p>
+        <p id="location-adress"></p>
+        <iframe id="location" src="" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const giedItem = document.querySelectorAll('details-container');
+            const titleElement = document.getElementById('location-title');
+            const descriptionElement = document.getElementById('location-description');
+            const adressElement = document.getElementById('location-adress');
+            const mapElement = document.getElementById('location-map');
+
+            giedItem.forEach(item => {
+                item.addEventListener('click', function (){
+                    const title = item.getAttribute('data-title');
+                    const description = item.getAttribute('data-description');
+                    const adress = item.getAttribute('data-adress');
+                    const map = item.getAttribute('data-map');
+
+                    titleElement.textContent = title;
+                    description.textContent = description;
+                    adressElement.textContent = adress;
+                    mapElement.src = map;
+                })
+            })
+        })
+    </script>
+</body>
+</html>

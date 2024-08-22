@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            float: left;
+            padding: 20px;
+            height: 750px;
+            overflow-y: auto;
+        }
+
+        .grid-item {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .grid-item img {
+            display: block;
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            width: 101%;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .grid-item:hover .image-wrapper {
+            transform: scale(1.05);
+        }
+
+        .details-container {
+            margin-left: 30%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(0.5px);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            height: 100vh;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #location-title {
+            margin-top: 0;
+        }
+
+        #location-map {
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item" data-title="Location 1" data-description="Description for Location 1"
+            data-address="123 Main St, City, Country"
+            data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+            <img src="https://media.istockphoto.com/id/1477967321/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%AA%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%A1%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B5%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B9%83%E0%B8%AA%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B9%83%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A1%E0%B8%B5%E0%B9%81%E0%B8%94%E0%B8%94.jpg?b=1&s=170667a&w=0&k=20&c=CFk2VJjiqWZIxxI6_0CpTb_AMUVyczcG0qQCkEGcrCE="
+                alt="Location 1">
+            <div class="image-text">Image 1</div>
+        </div>
+        <div class="grid-item" data-title="Location 2" data-description="Description for Location 2"
+            data-address="456 Another St, City, Country"
+            data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+            <img src="https://cdn.pixabay.com/photo/2024/02/09/13/03/beach-8563083_1280.jpg" alt="Location 2">
+            <div class="image-text">Image 2</div>
+        </div>
+        <div class="grid-item" data-title="Location 3" data-description="Description for Location 2"
+            data-address="456 Another St, City, Country"
+            data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+            <img src="https://cdn.pixabay.com/photo/2016/10/22/18/52/beach-1761410_640.jpg" alt="Location 3">
+            <div class="image-text">Image 3</div>
+        </div>
+        <div class="grid-item" data-title="Location 4" data-description="Description for Location 2"
+            data-address="456 Another St, City, Country"
+            data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+            <img src="https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_640.jpg" alt="Location 4">
+            <div class="image-text">Image 4</div>
+        </div>
+    </div>
+
+    <div class="details-container">
+        <h2 id="location-title">Beach</h2>
+        <p id="location-description">Select a location
+        </p>
+        <p id="location-address"></p>
+        <iframe id="location-map" src="" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gridItems = document.querySelectorAll('.grid-item');
+            const titleElement = document.getElementById('location-title');
+            const descriptionElement = document.getElementById('location-description');
+            const addressElement = document.getElementById('location-address');
+            const mapElement = document.getElementById('location-map');
+
+            gridItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const title = item.getAttribute('data-title');
+                    const description = item.getAttribute('data-description');
+                    const address = item.getAttribute('data-address');
+                    const mapSrc = item.getAttribute('data-map');
+
+                    titleElement.textContent = title;
+                    descriptionElement.textContent = description;
+                    addressElement.textContent = address;
+                    mapElement.src = mapSrc;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

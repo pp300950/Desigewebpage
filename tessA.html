@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .container a{
+        text-decoration: none;
+       }
+       .container li{
+        list-style: none;
+       }
+       .container {
+        min-height: 100vh;
+        padding-bottom: 50vh;
+        margin: 0 auto;
+        position: relative;
+       }
+       .bg{
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+       }
+       .bg::after{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: url("");
+        background-size: cover;
+        background-position: center;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        filter: brightness(45%);
+        content: "";
+        
+       }
+       .navbar{
+        width: 85%;
+        height: 15vh;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+       }
+       .navber ul{
+        display: flex;
+        align-items: center;
+       }
+       .navbar ul li {
+        padding: 0 25px;
+       }
+       .navbar ul li a{
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+       }
+       .navbar .logo a{font-size: 1.3rem;
+       }
+       .content{
+
+       }
+       .phuket{
+
+       }
+       .phuket h2{
+
+       }
+       .phuket p{
+
+       }
+       .card{
+
+       }
+       .card h2{
+        bottom: 15px;
+        left: 20px;
+        letter-spacing: 1px;
+        font-size: 1.6px;
+        color: white;
+       }
+       .card .box1,.box2,.box3,.box4{
+
+       }
+       .box1{
+        background-image: url("");
+       }
+       .box2{
+        background-image: url("");
+       }
+       .box3{
+        background-image: url("");
+       }
+       .box4{
+        background-image: url("");
+       }
+     .tnt h2{
+        font-size: 5rem;
+     }
+     .card div{
+        transition: 0.2s;
+     }
+     .card div:hover{
+        transition: 0.5s;
+        transform: translateY(-10px);
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3) , 0 15px 12px rgba(0, 0, 0, 0.22);
+     }
+     #scrolldow{
+
+     }
+     #scrolldow:hover{
+
+     }
+     #scrolldow::before{
+
+     }
+     #scrolldow span{
+        
+     }
+    </style>
+</head>
+<body>
+    <div class="container bg">
+        <div class="navbar">
+            <div class="logo">
+                <a href="">↨&copy;</a>
+            </div>
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="phuket">
+                <div class="tnt">
+                    <h2></h2>
+                </div>
+                <div class="txt">
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <a href="#section2">
+                <div class="box1">
+                    <h2></h2>
+                </div>
+            </a>
+            <a href="#section3">
+                <div class="box2">
+                    <h2></h2>
+                </div>
+            </a>
+            <a href="#section4">
+                <div class="box3">
+                    <h2></h2>
+                </div>
+            </a>
+            <a href="#section5">
+                <div class="box4">
+                    <h2></h2>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="scrolldow">
+        <span>↨เลื่อนลง</span>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const scrollDow = document.getElementById('scrolldow');
+            window.addEventListener('scroll',()=>{
+                scrollDow.style.display = window.scrollY = 0 ? 'flex' : 'none';
+                scrollDow.style.opacity = window.scrollY = 0 ? '1' : '0';
+            })
+            window.addEventListener('click',()=>{
+                window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+            })
+        })
+    </script>
+</body>
+</html>
+<!-- 18.29 : 18.43 = 14 -->
+<!-- 18.44 :  18.58 = 14 -->
+<!-- 18.58 :   19.11 = 13 -->
+<!-- 19.13 :    19.24 = 11 -->
