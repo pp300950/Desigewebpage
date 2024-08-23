@@ -5,95 +5,7 @@
     <meta charset="UTF-8">
     <title>CodePen - Onscroll Animation: Dynamic Content Scroll with ScrollMagic</title>
     <style>
-        :root {
-            --primary: #212121;
-            --secondary: #515151;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body,
-        html {
-            overflow-x: hidden;
-        }
-
-        body {
-            background-color: var(--primary);
-            height: 100%;
-            color: var(--white);
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin-bottom: 30px;
-            font-size: 24px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            -webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            color: var(--white);
-            letter-spacing: 1.2px;
-        }
-
-        p {
-            font-size: 45px;
-            line-height: 1.4;
-            font-family: "Titillium Web", sans-serif;
-            font-weight: 200;
-        }
-
-        .event {
-            position: relative;
-            overflow: hidden;
-            height: 100svh;
-            width: 100vw;
-            z-index: 1;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-
-        .event::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        #section2.event::before,
-        #section3.event::before,
-        #section4.event::before,
-        #section5.event::before,
-        #section6.event::before {
-            background-color: rgb(86 82 76 / 57%);
-        }
-
-        #section2 {
-            background-image: url("https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/what-is-a-beach-1_ver_1.jpg");
-        }
-
-        #section3 {
-            background-image: url("https://ik.imagekit.io/click2go/tours/00004/gallery/01_Ang_ThongNational_Marine_Park.jpg?tr=w-720");
-        }
-
-        #section4 {
-            background-image: url("https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg");
-        }
-
-        #section5 {
-            background-image: url("https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98=");
-        }
-
-
-        /*  หน้าหลัก  */
+        /*  A  */
         .container a {
             text-decoration: none;
         }
@@ -246,7 +158,6 @@
             box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
         }
 
-        /* เเถบเลื่อนลง */
         #scrollDown {
             position: fixed;
             bottom: 20px;
@@ -278,16 +189,15 @@
             margin-top: 5px;
         }
 
+        /* B */
 
-
-        /* เเถบเนื้อหา */
         .grid-container {
+            width: 25%;
+            height: 750px;
+            padding: 20px;
+            float: left;
             display: flex;
             flex-direction: column;
-            width: 25%;
-            float: left;
-            padding: 20px;
-            height: 750px;
             overflow-y: auto;
         }
 
@@ -309,31 +219,28 @@
         }
 
         .image-text {
-            position: absolute;
+            width: 101%;
             bottom: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            width: 101%;
-            text-align: center;
             padding: 10px;
-            box-sizing: border-box;
             font-size: 16px;
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
+            border-radius: 0 0 4px 4px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            color: #fff;
+            text-align: center;
+            box-sizing: border-box;
         }
-
-       
 
         .details-container {
             margin-left: 30%;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(0.5px);
-            border-left: 1px solid rgba(255, 255, 255, 0.3);
             height: 100vh;
-            position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff9;
+            backdrop-filter: blur(0.5px);
+            border-left: 1px solid #fff5;
+            position: relative;
         }
 
         #location-title {
@@ -346,11 +253,94 @@
             overflow: hidden;
         }
 
+         /* C */
+       
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: black;
+            height: 100%;
+            color: white;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            -webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: "Poppins", sans-serif;
+            color: white;
+            letter-spacing: 1.2px;
+        }
+
+        p {
+            font-size: 45px;
+            line-height: 1.4;
+            
+            font-weight: 200;
+        }
+
+        .event {
+            position: relative;
+            overflow: hidden;
+            height: 100svh;
+            width: 100vw;
+            z-index: 1;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .event::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #section2.event::before,
+        #section3.event::before,
+        #section4.event::before,
+        #section5.event::before,
+        #section6.event::before {
+            background-color: rgb(86 82 76 / 57%);
+        }
+
+        #section2 {
+            background-image: url("https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/what-is-a-beach-1_ver_1.jpg");
+        }
+
+        #section3 {
+            background-image: url("https://ik.imagekit.io/click2go/tours/00004/gallery/01_Ang_ThongNational_Marine_Park.jpg?tr=w-720");
+        }
+
+        #section4 {
+            background-image: url("https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg");
+        }
+
+        #section5 {
+            background-image: url("https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98=");
+        }
+
         footer {
             background-color: #333;
             color: #fff;
             padding: 20px;
-            font-family: Arial, sans-serif;
+           
         }
 
         .footer-container {
@@ -399,15 +389,11 @@
         .footer-bottom p {
             font-size: large;
         }
+
     </style>
-
-
 </head>
 
-<body>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-        <!-- poit , logo ไม่ได้ใส่ภาพ-->
+<body>   
         <section class="events-page">
             <div id="section1" class="event">
                 <div class="container bg">
@@ -462,7 +448,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="scrollDown" onclick="scrollToBottom()">
+                <div id="scrollDown">
                     <span>เลื่อนลง</span>
                 </div>
             </div>
