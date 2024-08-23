@@ -72,32 +72,32 @@
         }
 
         .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 85%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       position: absolute;
+       width: 85%;
+       top:50%;
+       left:50%;
+       transform: translate(-50%,-50%);
         }
 
         .phuket {
-            color: #fff;
-            padding: 25px;
-            text-align: center;
-            width: 100%;
+       color: #fff; 
+       padding:25px;
+       text-align: center;
+       width:100%;
         }
 
         .card {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 20px;
-            width: 100%;
+       display: grid;
+       grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+       grid-gap: 20px;
+       width: 100%;     
         }
 
         .card h2 {
-            color: #fff;
+         color: #fff;
             position: absolute;
             bottom: 15px;
             left: 20px;
@@ -109,13 +109,7 @@
         .box2,
         .box3,
         .box4 {
-            width: 100%;
-            height: 220px;
-            background-position: center;
-            background-size: cover;
-            position: relative;
-            border-radius: 25px;
-            cursor: pointer;
+
         }
 
         .box1 {
@@ -135,13 +129,13 @@
         }
 
         .phuket h2 {
-            font-size: 2rem;
-            letter-spacing: 2.8px;
+        font-size: 2rem;
+        letter-spacing: 2.8px;    
         }
 
         .phuket p {
-            font-size: 1.5rem;
-            opacity: 0.5;
+         font-size: 1.5rem;  
+         opacity: 0.5px;
         }
         
         .txt h1 {
@@ -159,41 +153,25 @@
         }
 
         #scrollDown {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+        position: fixed;
+        bottom:20px;
+        
         }
 
         #scrollDown:hover {
-            background: rgba(0, 0, 0, 0.9);
+           
         }
 
         #scrollDown::before {
-            content: '↨';
-            display: block;
-            font-size: 24px;
+            
         }
 
         #scrollDown span {
-            display: block;
-            margin-top: 5px;
+          
         }
 
-
-
-
-
         /* B */
+
         .grid-container {
             width: 25%;
             height: 750px;
@@ -215,7 +193,6 @@
             border: 2px solid #ddd;
             border-radius: 4px;
             transition: transform 0.2s;
-            
         }
 
         .grid-item img:hover {
@@ -257,7 +234,15 @@
             overflow: hidden;
         }
 
-        /* C */
+
+
+
+
+
+
+
+
+        /* C */   /*   ยังไม่จำ     */ 
         * {
             margin: 0;
             padding: 0;
@@ -291,22 +276,22 @@
         }
 
         .event {
+            position: relative;
+            overflow: hidden;
             height: 100svh;
             width: 100vw;
             z-index: 1;
-            position: relative;
-            overflow: hidden;
             background: center/cover no-repeat;
         }
 
         .event::before {
+            content: "";
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            position: absolute;
-            content: "";
         }
 
         #section2.event::before,
@@ -334,9 +319,9 @@
         }
 
         footer {
-            padding: 20px;
             background-color: #333;
             color: #fff;
+            padding: 20px;
         }
 
         .footer-container {
