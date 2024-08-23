@@ -253,8 +253,7 @@
             overflow: hidden;
         }
 
-         /* C */
-       
+        /* C */
         * {
             margin: 0;
             padding: 0;
@@ -275,19 +274,15 @@
         h2,
         h3 {
             margin-bottom: 30px;
-            font-size: 24px;
-            font-weight: 500;
+            font: 500 24px/1.2 "Poppins", sans-serif;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            -webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-family: "Poppins", sans-serif;
             color: white;
-            letter-spacing: 1.2px;
         }
+
 
         p {
             font-size: 45px;
             line-height: 1.4;
-            
             font-weight: 200;
         }
 
@@ -297,9 +292,7 @@
             height: 100svh;
             width: 100vw;
             z-index: 1;
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
+            background: center/cover no-repeat;
         }
 
         .event::before {
@@ -317,7 +310,7 @@
         #section4.event::before,
         #section5.event::before,
         #section6.event::before {
-            background-color: rgb(86 82 76 / 57%);
+            background-color: rgba(86, 82, 76, 0.57);
         }
 
         #section2 {
@@ -340,7 +333,6 @@
             background-color: #333;
             color: #fff;
             padding: 20px;
-           
         }
 
         .footer-container {
@@ -351,7 +343,8 @@
             padding-bottom: 20px;
         }
 
-        .footer-container p {
+        .footer-container p,
+        .footer-bottom p {
             font-size: large;
         }
 
@@ -385,149 +378,140 @@
             border-top: 2px solid #444;
             background-color: #222;
         }
-
-        .footer-bottom p {
-            font-size: large;
-        }
-
     </style>
 </head>
 
-<body>   
-        <section class="events-page">
-            <div id="section1" class="event">
-                <div class="container bg">
-                    <div class="navBar">
-                        <div class="logo">
-                            <a href="#">
-                                <i class="fas fa-suitcase-rolling"></i>
-                            </a>
-                        </div>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
+<body>
+    <section class="events-page">
+        <div id="section1" class="event">
+            <div class="container bg">
+                <div class="navBar">
+                    <div class="logo">
+                        <a href="#">
+                            <i class="fas fa-suitcase-rolling"></i>
+                        </a>
                     </div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
 
-                    <div class="content">
-                        <div class="phuket" style="width:100%;">
-                            <div class="tnt">
-                                <h2><i class="fas fa-map-marker-alt"></i> Thailand</h2>
+                <div class="content">
+                    <div class="phuket" style="width:100%;">
+                        <div class="tnt">
+                            <h2><i class="fas fa-map-marker-alt"></i> Thailand</h2>
+                        </div>
+                        <div class="txt">
+                            <h1>PHU</h1>
+                            <h1>KET</h1>
+                        </div>
+                        <p>ภูเก็ตเป็นเกาะสวรรค์ของประเทศไทยที่คุณไม่ควรพลาด! เพลิดเพลินกับชายหาดทรายขาว น้ำทะเลใส
+                            และกิจกรรมสนุกมากมาย เช่น การดำน้ำ และการสำรวจเกาะสวยงาม
+                            พบกับบรรยากาศที่อบอุ่นและอาหารทะเลสดๆ ที่นี่ได้เลย!</p>
+                    </div>
+                    <div class="card" style="width:100%;">
+                        <a href="#section2">
+                            <div class="box1">
+                                <h2>Bleach</h2>
                             </div>
-                            <div class="txt">
-                                <h1>PHU</h1>
-                                <h1>KET</h1>
+                        </a>
+                        <a href="#section3">
+                            <div class="box2">
+                                <h2>Island</h2>
                             </div>
-                            <p>ภูเก็ตเป็นเกาะสวรรค์ของประเทศไทยที่คุณไม่ควรพลาด! เพลิดเพลินกับชายหาดทรายขาว น้ำทะเลใส
-                                และกิจกรรมสนุกมากมาย เช่น การดำน้ำ และการสำรวจเกาะสวยงาม
-                                พบกับบรรยากาศที่อบอุ่นและอาหารทะเลสดๆ ที่นี่ได้เลย!</p>
-                        </div>
-                        <div class="card" style="width:100%;">
-                            <a href="#section2">
-                                <div class="box1">
-                                    <h2>Bleach</h2>
-                                </div>
-                            </a>
-                            <a href="#section3">
-                                <div class="box2">
-                                    <h2>Island</h2>
-                                </div>
-                            </a>
-                            <a href="#section4">
-                                <div class="box3">
-                                    <h2>Hotel</h2>
-                                </div>
-                            </a>
-                            <a href="#section5">
-                                <div class="box4">
-                                    <h2>Food</h2>
-                                </div>
-                            </a>
-                        </div>
+                        </a>
+                        <a href="#section4">
+                            <div class="box3">
+                                <h2>Hotel</h2>
+                            </div>
+                        </a>
+                        <a href="#section5">
+                            <div class="box4">
+                                <h2>Food</h2>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div id="scrollDown">
-                    <span>เลื่อนลง</span>
-                </div>
             </div>
-            <div style="padding: 20px;">
-
+            <div id="scrollDown">
+                <span>เลื่อนลง</span>
             </div>
+        </div>
+        <div style="padding: 20px; background-color: rgb(82, 82, 82);">
 
-            <div id="section2" class="event">
-                <div class="grid-container">
-                    <div class="grid-item" data-title="Location 1" data-description="Description for Location 1"
-                        data-address="123 Main St, City, Country"
-                        data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
-                        <img src="https://media.istockphoto.com/id/1477967321/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%AA%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%A1%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B5%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B9%83%E0%B8%AA%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B9%83%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A1%E0%B8%B5%E0%B9%81%E0%B8%94%E0%B8%94.jpg?b=1&s=170667a&w=0&k=20&c=CFk2VJjiqWZIxxI6_0CpTb_AMUVyczcG0qQCkEGcrCE="
-                            alt="Location 1">
-                        <div class="image-text">Image 1</div>
-                    </div>
-                    <div class="grid-item" data-title="Location 2" data-description="Description for Location 2"
-                        data-address="456 Another St, City, Country"
-                        data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
-                        <img src="https://cdn.pixabay.com/photo/2024/02/09/13/03/beach-8563083_1280.jpg"
-                            alt="Location 2">
-                        <div class="image-text">Image 2</div>
-                    </div>
-                    <div class="grid-item" data-title="Location 3" data-description="Description for Location 2"
-                        data-address="456 Another St, City, Country"
-                        data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
-                        <img src="https://cdn.pixabay.com/photo/2016/10/22/18/52/beach-1761410_640.jpg"
-                            alt="Location 3">
-                        <div class="image-text">Image 3</div>
-                    </div>
-                    <div class="grid-item" data-title="Location 4" data-description="Description for Location 2"
-                        data-address="456 Another St, City, Country"
-                        data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
-                        <img src="https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_640.jpg"
-                            alt="Location 4">
-                        <div class="image-text">Image 4</div>
-                    </div>
+        </div>
+
+        <div id="section2" class="event">
+            <div class="grid-container">
+                <div class="grid-item" data-title="Location 1" data-description="Description for Location 1"
+                    data-address="123 Main St, City, Country"
+                    data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+                    <img src="https://media.istockphoto.com/id/1477967321/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B8%AA%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%A1%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B5%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B9%83%E0%B8%AA%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AB%E0%B8%B2%E0%B8%94%E0%B8%97%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B9%83%E0%B8%99%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A1%E0%B8%B5%E0%B9%81%E0%B8%94%E0%B8%94.jpg?b=1&s=170667a&w=0&k=20&c=CFk2VJjiqWZIxxI6_0CpTb_AMUVyczcG0qQCkEGcrCE="
+                        alt="Location 1">
+                    <div class="image-text">Image 1</div>
                 </div>
-
-                <div class="details-container">
-                    <h2 id="location-title" >Beach</h2>
-                    <p id="location-description" >Select a location
-                    </p>
-                    <p id="location-address"></p>
-                    <iframe id="location-map" src="" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
-
+                <div class="grid-item" data-title="Location 2" data-description="Description for Location 2"
+                    data-address="456 Another St, City, Country"
+                    data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+                    <img src="https://cdn.pixabay.com/photo/2024/02/09/13/03/beach-8563083_1280.jpg" alt="Location 2">
+                    <div class="image-text">Image 2</div>
+                </div>
+                <div class="grid-item" data-title="Location 3" data-description="Description for Location 2"
+                    data-address="456 Another St, City, Country"
+                    data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+                    <img src="https://cdn.pixabay.com/photo/2016/10/22/18/52/beach-1761410_640.jpg" alt="Location 3">
+                    <div class="image-text">Image 3</div>
+                </div>
+                <div class="grid-item" data-title="Location 4" data-description="Description for Location 2"
+                    data-address="456 Another St, City, Country"
+                    data-map="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d147748.11616882743!2d100.918193843692!3d13.317471156760863!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1723948765780!5m2!1sth!2sth">
+                    <img src="https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_640.jpg" alt="Location 4">
+                    <div class="image-text">Image 4</div>
                 </div>
             </div>
 
-            <div id="section3" class="event">
-                
+            <div class="details-container">
+                <h2 id="location-title">Beach</h2>
+                <p id="location-description">Select a location
+                </p>
+                <p id="location-address"></p>
+                <iframe id="location-map" src="" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
             </div>
+        </div>
 
-            <div id="section4" class="event">
-               
-            </div>
-            <div id="section5" class="event">
-                
-            </div>
-        </section>
+        <div id="section3" class="event">
 
-        <footer>
-            <div class="footer-container">
-                <div class="footer-item">
-                    <h3>About Us</h3>
-                    <p>We are a team of passionate individuals dedicated to providing the best services and solutions.
-                    </p>
-                </div>
-                <div class="footer-item">
-                    <h3>Contact</h3>
-                    <p>Email: info@example.com</p>
-                    <p>Phone: +123 456 7890</p>
-                </div>
+        </div>
+
+        <div id="section4" class="event">
+
+        </div>
+        <div id="section5" class="event">
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-item">
+                <h3>เกี่ยวกับเรา</h3>
+                <p>หน้าเว้ปไซต์นี้ออกเเบบโดยนักเรียนจากโรงเรียน พานทอง
+                </p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <div class="footer-item">
+                <h3>ติดต่อ</h3>
+                <p>Email: info@example.com</p>
+                <p>Phone: +123 456 7890</p>
             </div>
-        </footer>
-   
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Phanthong School. All rights reserved.</p>
+        </div>
+    </footer>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -569,6 +553,9 @@
 </body>
 
 </html>
+
+<!-- 556 -->
+<!-- 572 -->
 <!-- 606 -->
 <!-- 657 -->
 <!-- 430 -->
