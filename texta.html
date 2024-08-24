@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container a{
+
+        }
+        .container li{
+
+        }
+        .container {
+
+        }
+        .bg {
+
+        }
+        .bg::after{
+
+        }
+        .navbar{
+
+        }
+        .navbar ul{
+
+        }
+        .navbar ul li{
+
+        }
+        .navbar ul li a{
+
+        }
+        .navbar .logo a{
+
+        }
+        .content {
+
+        }
+        .phuket {
+
+        }
+        .phuket h2{
+
+        }
+        .phuket p{
+
+        }
+        .card {
+
+        }
+        .card h2{
+
+        }
+        .card .box1,.box2,.box3,.box4 {
+
+        }
+        .box1{
+
+        }
+        .box2{
+
+        }
+        .box3{
+
+        }
+        .box4{
+
+        }
+        .txt h1{
+
+        }
+        .card div{
+
+        }
+        .card div:hover{
+
+        }
+        #scrolldow{
+
+        }
+        #scrolldow:hover{
+
+        }
+        #scrolldow::before {
+
+        }
+        #scrolldow span{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container bg">
+        <div class="navbar">
+            <div class="logo">
+                <a href="">logo</a>
+            </div>
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="phuket">
+                <div class="tnt">
+                    <h2></h2>
+                </div>
+                <div class="txt">
+                    <h1></h1>
+                    <h1></h1>
+                </div>
+                <p></p>
+            </div>
+            <div class="card">
+                <a href="">
+                    <div class="box1">
+                        <h2></h2>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="box1">
+                        <h2></h2>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="box1">
+                        <h2></h2>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="box1">
+                        <h2></h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="scrolldow">
+        <span>↨เลื่อนลง</span>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const scrollDow = document.getElementById('scrolldow');
+            window.addEventListener('scroll',()=>{
+                scrollDow.style.display = window.scrollY = 0 ? 'display' : 'none';
+                scrollDow.style.display = window.scrollY = 0 ? '1' : '0';
+
+            });
+            window.addEventListener('click', ()=>{
+                window.scrollTo({ top : document.body.scrollHeight,behavior :'smooth'});
+            });
+        })
+    </script>
+</body>
+</html>

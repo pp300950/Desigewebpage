@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+
+        }
+        .grid-item{
+
+        }
+        .grid-item img{
+
+        }
+        .grid-item img:hover{
+
+        }
+        .image-text{
+            
+        }
+        .details-container{
+
+        }
+        #location-title{
+
+        }
+        #location-map{
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item" data-title="11111111" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">pic1</div>
+        </div>
+        <div class="grid-item" data-title="222222222222" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">pic2</div>
+        </div>
+        <div class="grid-item" data-title="333333333333" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">pic3</div>
+        </div>
+        <div class="grid-item" data-title="4444444444444" data-description="" data-adress="" data-map="">
+            <img src="" alt="">
+            <div class="image-text">pic4</div>
+        </div>
+    </div>
+    <div class="details-container">
+        <h2 id="location-title"></h2>
+        <p id="location-description"></p>
+        <p id="location-address"></p>
+        <iframe src="" id="location-map" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const gridItem = document.querySelectorAll('.grid-item');
+            const titleElement = document.getElementById('location-title');
+            const descriptionElement = document.getElementById('location-description');
+            const adressElement = document.getElementById('location-adress');
+            const mapElement = document.getElementById('location-map');
+
+            gridItem.forEach(item => {
+                item.addEventListener('click', function (){
+                    const title = item.getAttribute('data-title');
+                    const description = item.getAttribute('data-description');
+                    const adress = item.getAttribute('data-adress');
+                    const map = item.getAttribute('data-map');
+
+                    titleElement.textContent = title;
+                    descriptionElement.textContent = description;
+                    adressElement.textContent = adress;
+                    mapElement.textContent = map;
+
+            });
+            });
+        });
+    </script>
+</body>
+
+</html>
