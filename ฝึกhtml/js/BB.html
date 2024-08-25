@@ -8,13 +8,13 @@
         .grid-container{
 
         }
-        .grid-item {
+        .grid-item{
 
         }
         .grid-item img{
 
         }
-        .grid-item img:hover{
+        .grid-item img::before{
 
         }
         .image-text{
@@ -33,31 +33,30 @@
 </head>
 <body>
     <div class="grid-container">
-        <div class="grid-item" data-title="1111111" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="111" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">img1</div>
+            <div class="image-text">111111111</div>
         </div>
-        <div class="grid-item" data-title="222222" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="22222" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">img2</div>
+            <div class="image-text">222222</div>
         </div>
-        <div class="grid-item" data-title="33333333" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="3333333" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">img3</div>
+            <div class="image-text">33333333</div>
         </div>
-        <div class="grid-item" data-title="444444444" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="4444444" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">img4</div>
+            <div class="image-text">444444</div>
         </div>
     </div>
 
     <div class="details-container">
         <h2 id="location-title"></h2>
         <p id="location-description"></p>
-        <p id="location-address"></p>
+        <p id="location-adress"></p>
         <iframe src="" id="location-map" frameborder="0" allowfullscreen></iframe>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function(){
             const gridItem = document.querySelectorAll('.grid-item');
@@ -75,11 +74,11 @@
 
                     titleElement.textContent = title;
                     descriptionElement.textContent = description;
-                    adress.textContent = adress;
-                    map.src = map;
-                });
-            });
-        });
+                    adressElement.textContent = adress;
+                    mapElement.src = map
+                })
+            })
+        })
     </script>
 </body>
 </html>

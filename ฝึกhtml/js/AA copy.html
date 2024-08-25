@@ -6,19 +6,34 @@
     <title>Document</title>
     <style>
         .container a{
-            
+            text-decoration: none;
         }
         .container li{
-            
+            list-style: none;
         }
         .container {
-            
+            min-height: 100vh;
+            padding-bottom: 50px;
+            margin: 0 auto;
+            position: relative;
         }
         .bg{
-            
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
         .bg::after{
-            
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            filter: brightness(45%);
+            background-position: center;
+            background-size: cover;
+            top: 0;
+            left: 0;
+            background-image: url("");
+            content: "";
+            z-index: -1;
         }
         .navbar{
 
