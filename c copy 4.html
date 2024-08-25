@@ -6,8 +6,8 @@
     <title>CodePen - Onscroll Animation: Dynamic Content Scroll with ScrollMagic</title>
     <style>
         * {
-            padding: 0;
             margin: 0;
+            padding: 0;
         }
         body,
         html {
@@ -16,37 +16,37 @@
         body {
            height: 100%;
            background-color: black;
-
         }
         h1,
         h2,
         h3 {
             margin-bottom: 30px;
-            font:500 24px/1.2 "Poppins" , sans-serif;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font: 500 24px/1.2 "Poppins",sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             color: white;
         }
         p {
             font-size: 45px;
             line-height: 1.4;
             font-weight: 200;
+
         }
         .event {
             height: 100svh;
-            font-weight: 100vw;
+            width: 100vw;
             position: relative;
             overflow: hidden;
-            background: center/cover no-repeat;
             z-index: 1;
+            background: center/cover no-repeat;
         }
         .event::before {
-            width: 100%;
             height: 100%;
+            width: 100%;
             top: 0;
             left: 0;
-            position: absolute;
             z-index: -1;
             content: "";
+            position: absolute;
         }
         #section2.event::before,
         #section3.event::before,
@@ -55,19 +55,23 @@
             background-color: #56524c91;
         }
         #section2 {
-            background-image: url("");
+            background-image: url("https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/what-is-a-beach-1_ver_1.jpg");
         }
+
         #section3 {
-            background-image: url("");
+            background-image: url("https://ik.imagekit.io/click2go/tours/00004/gallery/01_Ang_ThongNational_Marine_Park.jpg?tr=w-720");
         }
+
         #section4 {
-            background-image: url("");
+            background-image: url("https://images.bubbleup.com/width1920/quality35/mville2017/1-brand/1-margaritaville.com/gallery-media/220803-compasshotel-medford-pool-73868-1677873697-78625-1694019828.jpg");
         }
+
         #section5 {
-            background-image: url("");
+            background-image: url("https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98=");
         }
+
         footer {
-            padding-bottom: 20px;
+            padding: 20px;
             background-color: #333;
             color: white;
         }
@@ -75,14 +79,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            border-radius: 2px solid #444;
-            padding: 20px;
+            border-bottom: 2px solid #444;
+            padding-bottom: 20px;
         }
         .footer-container p,
         .footer-bottom p {
             font-size: large;
         }
         .footer-item {
+            
+
             flex: 1;
             min-width: 200px;
             margin: 10px;
@@ -92,11 +98,11 @@
             color: #f1c40f;
         }
         .footer-item p {
-          margin: 10px 0 ;
+            margin: 5px 0;
         }
         .footer-bottom {
             text-align: center;
-            padding: 10px 0 ;
+            padding: 10px 0;
             border-top: 2px solid #444;
             background-color: #222;
         }
@@ -150,6 +156,9 @@
             <p>&copy; 2024 PT.</p>
         </div>
     </footer>
+
+
+    
 
 </body>
 

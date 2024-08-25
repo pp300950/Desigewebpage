@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .grid-container {
-            
+        .grid-container{
+
         }
         .grid-item {
 
@@ -17,68 +17,69 @@
         .grid-item img:hover{
 
         }
-        .image-text {
+        .image-text{
 
         }
-        .details-container {
+        .details-container{
 
         }
-        #location-title {
+        #location-title{
 
         }
-        #location-map {
-
+        #location-map{
+            
         }
     </style>
 </head>
 <body>
     <div class="grid-container">
-        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="1111111" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">imag1</div>
+            <div class="image-text">img1</div>
         </div>
-        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="222222" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">imag2</div>
+            <div class="image-text">img2</div>
         </div>
-        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="33333333" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">imag3</div>
+            <div class="image-text">img3</div>
         </div>
-        <div class="grid-item" data-title="" data-description="" data-adress="" data-map="">
+        <div class="grid-item" data-title="444444444" data-description="" data-adress="" data-map="">
             <img src="" alt="">
-            <div class="image-text">imag4</div>
+            <div class="image-text">img4</div>
         </div>
     </div>
 
     <div class="details-container">
         <h2 id="location-title"></h2>
         <p id="location-description"></p>
-        <p id="location-adress"></p>
-        <iframe id="location" src="" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
+        <p id="location-address"></p>
+        <iframe src="" id="location-map" frameborder="0" allowfullscreen></iframe>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const giedItem = document.querySelectorAll('details-container');
+        document.addEventListener('DOMContentLoaded', function(){
+            const gridItem = document.querySelectorAll('.grid-item');
             const titleElement = document.getElementById('location-title');
             const descriptionElement = document.getElementById('location-description');
             const adressElement = document.getElementById('location-adress');
             const mapElement = document.getElementById('location-map');
 
-            giedItem.forEach(item => {
-                item.addEventListener('click', function (){
+            gridItem.forEach(item=>{
+                item.addEventListener('click',function(){
                     const title = item.getAttribute('data-title');
                     const description = item.getAttribute('data-description');
                     const adress = item.getAttribute('data-adress');
                     const map = item.getAttribute('data-map');
 
                     titleElement.textContent = title;
-                    description.textContent = description;
-                    adressElement.textContent = adress;
-                    mapElement.src = map;
-                })
-            })
-        })
+                    descriptionElement.textContent = description;
+                    adress.textContent = adress;
+                    map.src = map;
+                });
+            });
+        });
     </script>
 </body>
 </html>
