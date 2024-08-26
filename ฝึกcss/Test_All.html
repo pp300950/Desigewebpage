@@ -38,22 +38,46 @@
             
         }
         .content {
-            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 85%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         .phuket {
-            
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+            width: 100%;
         }
         .card {
-            
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            width: 100%;
         }
         .card h2 {
-            
+            color: #fff;
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
         }
         .card .box1,
         .box2,
         .box3,
         .box4 {
-            
+            width: 100%;
+            height: 220px;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            border-radius: 25px;
+            cursor: pointer;
         }
         .box1 {
             background-image: url("https://images.unsplash.com/photo-1579683670728-96c9abc7a088?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
@@ -68,10 +92,12 @@
             background-image: url("https://t3.ftcdn.net/jpg/02/52/38/80/360_F_252388016_KjPnB9vglSCuUJAumCDNbmMzGdzPAucK.jpg");
         }
         .phuket h2 {
-            
+            font-size: 2rem;
+            letter-spacing: 2.8px;
         }
         .phuket p {
-            
+            font-size: 1.5rem;
+            opacity: 0.5;
         }
         .txt h1 {
             
@@ -83,16 +109,31 @@
             
         }
         #scrollDown {
-            
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
         }
         #scrollDown:hover {
-            
+            background: rgba(0, 0, 0, 0.9);
         }
         #scrollDown::before {
-            
+            content: '↨';
+            display: block;
+            font-size: 24px;
         }
         #scrollDown span {
-            
+            display: block;
+            margin-top: 5px;
         }
 
 
@@ -120,7 +161,14 @@
             
         }
         .details-container {
-            
+            margin-left: 30%;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff9;
+            backdrop-filter: blur(0.5px);
+            border-left: 1px solid #fff5;
+            position: relative;
         }
         #location-title {
             
