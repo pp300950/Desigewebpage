@@ -7,9 +7,6 @@
     <title>Document</title>
     <style>
         body {
-
-            height: 100vh;
-            margin: 0;
             display: grid;
             place-items: center;
             background-color: orangered;
@@ -55,6 +52,7 @@
 
 <body>
     <div class="gallery"></div>
+
     <script>
         const gallery = document.querySelector(".gallery");
         const fruits = [
@@ -96,7 +94,6 @@
             fruitElement.alt = fruit.title;
             gallery.append(fruitElement);
         });
-        
     </script>
 </body>
 
